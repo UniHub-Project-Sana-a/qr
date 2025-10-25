@@ -1,0 +1,121 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 210 20% 98%;
+    --foreground: 220 60% 25%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 60% 25%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 60% 25%;
+
+    --primary: 217 91% 60%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 220 60% 25%;
+
+    --muted: 210 40% 96%;
+    --muted-foreground: 220 40% 45%;
+
+    --accent: 217 91% 95%;
+    --accent-foreground: 220 60% 25%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 214 32% 88%;
+    --input: 0 0% 100%;
+    --ring: 217 91% 60%;
+
+    --radius: 0.75rem;
+    
+    /* Custom tokens for glassmorphism & 3D effects */
+    --glass-bg: 255 255 255 / 0.7;
+    --glass-border: 217 91% 60% / 0.2;
+    --neon-glow: 0 8px 32px hsl(217 91% 60% / 0.25);
+    --neon-glow-strong: 0 12px 40px hsl(217 91% 60% / 0.4);
+    
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(217 91% 60%), hsl(217 91% 70%));
+    --gradient-hero: linear-gradient(135deg, hsl(210 20% 98%), hsl(217 91% 97%));
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%), hsl(210 40% 98%));
+    
+    /* Shadows for 3D effect */
+    --shadow-3d: 0 8px 16px hsl(217 91% 60% / 0.1), 0 4px 8px hsl(217 91% 60% / 0.08);
+    --shadow-float: 0 20px 40px hsl(217 91% 60% / 0.15), 0 8px 16px hsl(217 91% 60% / 0.1);
+    
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    /* Dark mode uses same tokens since we're dark by default */
+  }
+}
+
+@layer utilities {
+  .glass {
+    @apply backdrop-blur-xl border bg-white/70 shadow-lg;
+    border-color: hsl(var(--glass-border));
+  }
+  
+  .neon-glow {
+    box-shadow: var(--neon-glow);
+  }
+  
+  .neon-glow-strong {
+    box-shadow: var(--neon-glow-strong);
+  }
+  
+  .shadow-3d {
+    box-shadow: var(--shadow-3d);
+  }
+  
+  .shadow-float {
+    box-shadow: var(--shadow-float);
+  }
+  
+  .transition-smooth {
+    transition: var(--transition-smooth);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-['Cairo'];
+    direction: rtl;
+  }
+  
+  html {
+    direction: rtl;
+  }
+}
